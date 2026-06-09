@@ -1,0 +1,232 @@
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContainer {
+  background: var(--bg-white);
+  border-radius: 0.75rem;
+  width: 100%;
+  max-width: 30rem;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--border-input);
+}
+
+.title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--text-base);
+  margin: 0;
+}
+
+.titleSmall {
+  font-size: 0.8125rem;
+  font-weight: lighter;
+  color: var(--text-base);
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  color: var(--text-placeholder);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  transition: background 0.15s;
+}
+.closeButton:hover { background: var(--bg-hover); }
+
+.body {
+  padding: 1.25rem 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.timestamp {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.dropdown {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.fieldWrapper,
+.status,
+.owner,
+.observations,
+.description,
+.selectContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.fieldLabel,
+.statusLabel,
+.ownerLabel,
+.observationsLabel,
+.descriptionLabel {
+  font-size: 0.8125rem;
+  color: var(--text-base);
+  font-weight: lighter;
+}
+
+.selectContainer label {
+  font-size: 0.8125rem;
+  font-weight: lighter;
+  color: var(--text-base);
+}
+
+.select {
+  border: 1px solid var(--border-input);
+  outline: none;
+  font-size: 0.8125rem;
+  font-weight: lighter;
+  color: var(--text-base);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  padding-right: 2rem;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--bg-white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238C4A1F' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 0.75rem center;
+  appearance: none;
+  cursor: pointer;
+  transition: border 0.15s;
+}
+.select:focus { border: 1px solid var(--primary-light); }
+
+.textArea {
+  border: 1px solid var(--border-input);
+  outline: none;
+  font-size: 0.8125rem;
+  font-weight: lighter;
+  color: var(--text-base);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--bg-white);
+  resize: vertical;
+  min-height: 4.5rem;
+  transition: border 0.15s;
+}
+.textArea::placeholder { color: var(--text-placeholder); }
+.textArea:focus { border: 1px solid var(--primary-light); }
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.625rem;
+  padding-top: 0.5rem;
+}
+
+.photoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.avatarWrapper {
+  position: relative;
+  cursor: pointer;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.avatarOverlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.avatarWrapper:hover .avatarOverlay { opacity: 1; }
+.avatarWrapper:has(.spinner) .avatarOverlay { opacity: 1; }
+
+.cameraIcon { font-size: 1.25rem; line-height: 1; }
+
+.spinner {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid rgba(255,255,255,0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.fileInput { display: none; }
+
+.photoHint {
+  font-size: 0.75rem;
+  color: var(--text-placeholder);
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .modalOverlay { align-items: flex-end; }
+  .modalContainer {
+    max-width: 100%;
+    max-height: 92vh;
+    border-radius: 1rem 1rem 0 0;
+    padding-top: 0.5rem;
+  }
+  .modalContainer::before {
+    content: "";
+    display: block;
+    width: 2.5rem;
+    height: 0.25rem;
+    background: var(--border-input);
+    border-radius: 99rem;
+    margin: 0 auto 0.25rem;
+    flex-shrink: 0;
+  }
+  .header { padding: 0.875rem 1.25rem 0.75rem; }
+  .body {
+    padding: 1rem 1.25rem;
+    padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+  }
+  .row,
+  .timestamp,
+  .dropdown { grid-template-columns: 1fr 1fr; }
+  .footer { flex-direction: row; justify-content: flex-end; }
+}

@@ -1,0 +1,63 @@
+.container {
+  background: var(--bg-white);
+  border: 0.5px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.75rem 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  cursor: pointer;
+  transition: background 0.12s;
+  margin-bottom: 0.5rem;
+}
+.container:last-child { margin-bottom: 0; }
+.container:hover  { background: var(--bg-page); }
+.container:active { background: var(--bg-hover); }
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.authorBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.authorName {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-base);
+  margin: 0;
+}
+
+.date {
+  font-size: 0.6875rem;
+  font-weight: 300;
+  color: var(--text-placeholder);
+  margin: 0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-left: calc(2.25rem + 0.625rem);
+}
+
+.title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-base);
+  margin: 0;
+}
+
+.text {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}

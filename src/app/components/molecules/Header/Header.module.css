@@ -1,0 +1,130 @@
+.header {
+  width: 100%;
+  padding: 0.7rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--primary);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav a {
+  color: var(--white);
+  transition: 0.2s;
+}
+.nav a:hover { opacity: 0.8; }
+
+.profileLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.active {
+  border-bottom: 1.5px solid var(--white);
+  padding-bottom: 0.2rem;
+}
+
+.menuBtn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menuBtn span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 99px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.menuBtn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menuBtn.open span:nth-child(2) { opacity: 0; }
+.menuBtn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.drawer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+}
+
+.drawerOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.drawerPanel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 70%;
+  max-width: 260px;
+  background: var(--primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 1.25rem;
+}
+
+.drawerNav {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawerPanel a {
+  color: var(--white);
+  font-size: 1rem;
+  padding: 0.625rem 0.25rem;
+  border-bottom: 0.5px solid rgba(255,255,255,0.15);
+  transition: opacity 0.15s;
+}
+.drawerNav a:last-child { border-bottom: none; }
+.drawerPanel a:hover { opacity: 0.75; }
+
+.drawerPanel .active {
+  border-bottom: 1.5px solid var(--white);
+  padding-bottom: 0.2rem;
+}
+
+.drawerProfile {
+  display: flex !important;
+  align-items: center;
+  gap: 0.625rem;
+  padding-top: 1rem !important;
+  border-top: 0.5px solid rgba(255,255,255,0.25) !important;
+  border-bottom: none !important;
+}
+
+.avatarLink {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .header { padding: 0.7rem 1.25rem; }
+  .nav, .avatarLink { display: none; }
+  .menuBtn { display: flex; }
+  .drawer.open { display: block; }
+}

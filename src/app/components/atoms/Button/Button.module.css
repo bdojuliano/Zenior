@@ -1,0 +1,12 @@
+.button {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 0.6rem 1.5rem;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: inherit;
+}
+.button:hover { opacity: 0.9; }

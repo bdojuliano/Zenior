@@ -1,0 +1,134 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 0;
+  border-bottom: 0.5px solid var(--border);
+  transition: opacity 0.15s;
+}
+.container:last-child { border-bottom: none; }
+
+.inactive { opacity: 0.45; }
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-base);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+}
+
+.adminBadge {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  background: var(--bg-hover-strong);
+  color: var(--primary);
+  padding: 0.1rem 0.5rem;
+  border-radius: 99rem;
+}
+
+.selfBadge {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  background: var(--border);
+  color: var(--text-muted);
+  padding: 0.1rem 0.5rem;
+  border-radius: 99rem;
+}
+
+.email {
+  font-size: 0.75rem;
+  font-weight: lighter;
+  color: var(--text-placeholder);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inactiveLabel {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--danger);
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.adminBtn, .removeAdminBtn {
+  background: none;
+  border: 0.5px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: lighter;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.adminBtn { color: var(--primary); }
+.adminBtn:hover {
+  background: var(--bg-hover-strong);
+  border-color: var(--primary);
+}
+
+.removeAdminBtn { color: var(--text-muted); }
+.removeAdminBtn:hover {
+  background: var(--danger-bg);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.toggleBtn {
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: lighter;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.deactivateBtn {
+  background: none;
+  border: 0.5px solid var(--danger);
+  color: var(--danger);
+}
+.deactivateBtn:hover { background: var(--danger-bg); }
+
+.activateBtn {
+  background: none;
+  border: 0.5px solid var(--success);
+  color: var(--success);
+}
+.activateBtn:hover { background: var(--success-bg); }
+
+@media (max-width: 768px) {
+  .container { flex-wrap: wrap; gap: 0.5rem; }
+  .info { min-width: 0; }
+  .actions {
+    width: 100%;
+    justify-content: flex-end;
+    padding-top: 0.25rem;
+    border-top: 0.5px solid var(--border);
+  }
+}

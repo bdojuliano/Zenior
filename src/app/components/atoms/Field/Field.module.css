@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  font-weight: lighter;
+  gap: 0.3rem;
+}
+
+.wrapper input {
+  border: 1px solid var(--card-board);
+  outline: none;
+  font-size: 0.8rem;
+  font-weight: lighter;
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.wrapper input::placeholder {
+  color: var(--card-board);
+}
+
+.wrapper input:focus {
+  border: 1px solid var(--primary);
+}
+
+.label {
+  font-size: 0.8125rem;
+  color: var(--text);
+}
