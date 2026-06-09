@@ -87,7 +87,7 @@ export default function Register() {
 
       if (joiningExisting) {
         const familySnap = await getDoc(doc(db, "family", familyId));
-        if (!familySnap.exists()) { alert("Código de família não encontrado."); return; }
+        if (!familySnap.exists()) { alert("Código do grupo familiar não encontrado."); return; }
       } else {
         familyId = await createUniqueFamilyId();
       }
@@ -130,17 +130,26 @@ export default function Register() {
 
         {/* Indicador de steps */}
         <div className={styles.stepIndicator}>
-          <div
-            className={`${styles.step} ${step === 1 ? styles.stepActive : styles.stepDone} ${step === 2 ? styles.stepClickable : ""}`}
-            onClick={() => step === 2 && setStep(1)}
-            title={step === 2 ? "Voltar ao passo 1" : undefined}
-          >
-            <p className={styles.stepNumber}>1</p>
+          {step === 2
+            ? <button className={styles.backBtn} onClick={() => setStep(1)}>← Voltar</button>
+            : <div />
+          }
+
+          <div className={styles.stepCircles}>
+            <div
+              className={`${styles.step} ${step === 1 ? styles.stepActive : styles.stepDone} ${step === 2 ? styles.stepClickable : ""}`}
+              onClick={() => step === 2 && setStep(1)}
+              title={step === 2 ? "Voltar ao passo 1" : undefined}
+            >
+              <p className={styles.stepNumber}>1</p>
+            </div>
+            <p>——</p>
+            <div className={`${styles.step} ${step === 2 ? styles.stepActive : styles.stepInactive}`}>
+              <p className={styles.stepNumber}>2</p>
+            </div>
           </div>
-          <p>——</p>
-          <div className={`${styles.step} ${step === 2 ? styles.stepActive : styles.stepInactive}`}>
-            <p className={styles.stepNumber}>2</p>
-          </div>
+
+          <div />
         </div>
 
         {/* ── Step 1 ── */}
@@ -205,18 +214,14 @@ export default function Register() {
         {/* ── Step 2 ── */}
         {step === 2 && (
           <>
-            <div className={styles.stepHeader}>
-              <button className={styles.backBtn} onClick={() => setStep(1)}>← Voltar</button>
-              <h1 className={styles.title}>Família</h1>
-            </div>
+            <h1 className={styles.title}>Grupo familiar</h1>
 
             <div className={styles.familyChoice}>
-              {/* Card: entrar em família existente */}
               <div className={styles.familyCard}>
-                <h2>Já possui uma família?</h2>
+                <h2>Já possui um grupo familiar?</h2>
                 <p>Entre com o código de convite.</p>
                 <Field
-                  label="Código da família"
+                  label="Código do grupo familiar"
                   placeholder="ABC123"
                   value={elderFamilyCode}
                   onChange={(e) => setElderFamilyCode(e.target.value.toUpperCase())}
@@ -225,9 +230,8 @@ export default function Register() {
 
               <div className={styles.divider} />
 
-              {/* Card: criar nova família */}
               <div className={styles.familyCard}>
-                <h2>Ainda não possui uma família?</h2>
+                <h2>Ainda não possui um grupo familiar?</h2>
                 <p>Crie uma nova e adicione os dados da pessoa cuidada.</p>
 
                 {!joiningExisting && (

@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import { collection, query, where, getDocs, addDoc, updateDoc, deleteDoc, doc } from "firebase/firestore";
 import { db } from "@/service/firebase";
 import { useAuth } from "@/contexts/AuthContext";
-import Loading from "../components/atoms/Loading/Loading";
-import MedicationItem from "../components/molecules/MedicationItem/MedicationItem";
-import ModalMedication, { type ModalMedicationData } from "../components/molecules/ModalMedication/ModalMedication";
+import Loading from "../../components/atoms/Loading/Loading";
+import MedicationItem from "../../components/molecules/MedicationItem/MedicationItem";
+import ModalMedication, { type ModalMedicationData } from "../../components/molecules/ModalMedication/ModalMedication";
 import styles from "./page.module.css";
 
 type Medication = {

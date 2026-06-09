@@ -21,7 +21,7 @@ export default function Home() {
           </div>
       </section>
       <section className={styles.right}>
-        <img className={styles.img} src="hero.svg" alt="Família" />
+        <img className={styles.img} src="home-zenior.jpg" alt="Família" />
       </section>
     </div>
   );

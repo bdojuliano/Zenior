@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { collection, query, where, getDocs, addDoc, updateDoc, deleteDoc, doc, getDoc } from "firebase/firestore";
 import { db } from "@/service/firebase";
 import { useAuth } from "@/contexts/AuthContext";
-import Loading from "../components/atoms/Loading/Loading";
-import ExpenseItem, { TAGS, type Tag } from "../components/molecules/ExpenseItem/ExpenseItem";
-import ModalExpense, { type ModalExpenseData } from "../components/molecules/ModalExpense/ModalExpense";
+import Loading from "../../components/atoms/Loading/Loading";
+import ExpenseItem, { TAGS, type Tag } from "../../components/molecules/ExpenseItem/ExpenseItem";
+import ModalExpense, { type ModalExpenseData } from "../../components/molecules/ModalExpense/ModalExpense";
 import styles from "./page.module.css";
 
 type Expense = {

@@ -6,9 +6,9 @@ import { doc, getDoc, updateDoc, getDocs, collection, query, where, deleteDoc, w
 import { sendPasswordResetEmail, signOut } from "firebase/auth";
 import { db, auth } from "@/service/firebase";
 import { useAuth } from "@/contexts/AuthContext";
-import Field from "../components/atoms/Field/Field";
-import Button from "../components/atoms/Button/Button";
-import Avatar from "../components/atoms/Avatar/Avatar";
+import Field from "../../components/atoms/Field/Field";
+import Button from "../../components/atoms/Button/Button";
+import Avatar from "../../components/atoms/Avatar/Avatar";
 import styles from "./page.module.css";
 
 type ConfirmModal = {
@@ -144,8 +144,8 @@ export default function Profile() {
       if (isOnlyMember) {
         setConfirmModal({
           title: "Desativar conta",
-          description: "Você é o único membro ativo da família. Ao desativar sua conta, a família também será excluída permanentemente. Tem certeza?",
-          confirmLabel: "Desativar e excluir família",
+          description: "Você é o único membro ativo do grupo familiar. Ao desativar sua conta, o grupo familiar também será excluído permanentemente. Tem certeza?",
+          confirmLabel: "Desativar e excluir grupo familiar",
           danger: true,
           onConfirm: async () => {
             try {
@@ -198,9 +198,9 @@ export default function Profile() {
   async function prepareDeleteFamily() {
     if (!user || !member?.familyId) return;
     setConfirmModal({
-      title: "Excluir família",
-      description: "Tem certeza? Essa ação é irreversível. O documento da família e todos os membros serão excluídos permanentemente.",
-      confirmLabel: "Excluir família",
+      title: "Excluir grupo familiar",
+      description: "Tem certeza? Essa ação é irreversível. O documento do grupo familiar e todos os membros serão excluídos permanentemente.",
+      confirmLabel: "Excluir grupo familiar",
       danger: true,
       onConfirm: async () => {
         try {
@@ -211,7 +211,7 @@ export default function Profile() {
           await batch.commit();
           await signOut(auth);
           router.push("/login");
-        } catch { alert("Erro ao excluir família"); }
+        } catch { alert("Erro ao excluir grupo familiar"); }
       },
     });
   }
@@ -327,8 +327,8 @@ export default function Profile() {
           {member?.isAdmin && (
             <div className={styles.actionRow}>
               <div className={styles.actionInfo}>
-                <p className={styles.actionLabel}>Excluir família</p>
-                <p className={styles.actionDesc}>Remove permanentemente a família e todos os membros</p>
+                <p className={styles.actionLabel}>Excluir grupo familiar</p>
+                <p className={styles.actionDesc}>Remove permanentemente o grupo familiar e todos os membros</p>
               </div>
               <button className={styles.dangerBtn} onClick={prepareDeleteFamily}>Excluir</button>
             </div>

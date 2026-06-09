@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import { collection, query, where, getDocs, addDoc, updateDoc, deleteDoc, doc } from "firebase/firestore";
 import { db } from "@/service/firebase";
 import { useAuth } from "@/contexts/AuthContext";
-import Loading from "../components/atoms/Loading/Loading";
-import ContactItem from "../components/molecules/ContactItem/ContactItem";
-import ModalContact, { type ModalContactData } from "../components/molecules/ModalContact/ModalContact";
+import Loading from "../../components/atoms/Loading/Loading";
+import ContactItem from "../../components/molecules/ContactItem/ContactItem";
+import ModalContact, { type ModalContactData } from "../../components/molecules/ModalContact/ModalContact";
 import styles from "./page.module.css";
 
 type Contact = {

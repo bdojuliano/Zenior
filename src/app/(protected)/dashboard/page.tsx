@@ -6,16 +6,16 @@ import { doc, getDoc, collection, query, where, getDocs, addDoc, updateDoc, dele
 import styles from "./page.module.css";
 import { db } from "@/service/firebase";
 import { useAuth } from "@/contexts/AuthContext";
-import Avatar from "../components/atoms/Avatar/Avatar";
-import Button from "../components/atoms/Button/Button";
-import Loading from "../components/atoms/Loading/Loading";
-import TaskList, { Task } from "../components/organisms/TaskList/TaskList";
-import ModalTask, { ModalTaskData } from "../components/molecules/ModalTask/ModalTask";
-import AppointmentList, { Appointment } from "../components/organisms/AppointmentList/AppointmentList";
-import ModalAppointment, { ModalAppointmentData } from "../components/molecules/ModalAppointment/ModalAppointment";
-import FeedList, { FeedPost } from "../components/organisms/FeedList/FeedList";
-import ModalFeed, { ModalFeedData } from "../components/molecules/ModalFeed/ModalFeed";
-import ModalElder, { ModalElderData } from "../components/molecules/ModalElder/ModalElder";
+import Avatar from "../../components/atoms/Avatar/Avatar";
+import Button from "../../components/atoms/Button/Button";
+import Loading from "../../components/atoms/Loading/Loading";
+import TaskList, { Task } from "../../components/organisms/TaskList/TaskList";
+import ModalTask, { ModalTaskData } from "../../components/molecules/ModalTask/ModalTask";
+import AppointmentList, { Appointment } from "../../components/organisms/AppointmentList/AppointmentList";
+import ModalAppointment, { ModalAppointmentData } from "../../components/molecules/ModalAppointment/ModalAppointment";
+import FeedList, { FeedPost } from "../../components/organisms/FeedList/FeedList";
+import ModalFeed, { ModalFeedData } from "../../components/molecules/ModalFeed/ModalFeed";
+import ModalElder, { ModalElderData } from "../../components/molecules/ModalElder/ModalElder";
 
 type FamilyMember = {
   id: string;
@@ -137,7 +137,7 @@ export default function Dashboard() {
         });
         setMonthExpensesTotal(total);
       } catch (error) {
-        console.error("Erro ao carregar dados da família:", error);
+        console.error("Erro ao carregar dados do grupo familiar:", error);
       }
     }
     loadFamilyData();

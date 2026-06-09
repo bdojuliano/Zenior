@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import { collection, query, where, getDocs, updateDoc, doc } from "firebase/firestore";
 import { db } from "@/service/firebase";
 import { useAuth } from "@/contexts/AuthContext";
-import Loading from "../components/atoms/Loading/Loading";
-import MemberItem from "../components/molecules/MemberItem/MemberItem";
+import Loading from "../../components/atoms/Loading/Loading";
+import MemberItem from "../../components/molecules/MemberItem/MemberItem";
 import styles from "./page.module.css";
 
 type Member = {
@@ -150,7 +150,7 @@ export default function Members() {
       <div className={styles.banner}>
         <button className={styles.backBtn} onClick={() => router.back()}>← Voltar</button>
         <div className={styles.bannerContent}>
-          <p className={styles.bannerLabel}>Código da família</p>
+          <p className={styles.bannerLabel}>Código do grupo familiar</p>
           <p className={styles.bannerCode}>{member?.familyId ?? "..."}</p>
           <button className={styles.copyBtn} onClick={handleCopyCode}>
             {copied ? "Copiado!" : "Copiar código"}
